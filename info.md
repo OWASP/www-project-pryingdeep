@@ -1,17 +1,11 @@
 ### Pryingdeep Information
-* [Incubator Project](#)
-* [Type of Project](#)
-* [Version 0.0.0](#)
-* [Builder](#)
-* [Breaker](#)
+* [Lab project](https://github.com/iudicium/pryingdeep)
+* [Version 1.0.0](https://github.com/iudicium/pryingdeep/releases/tag/v1.0.0)
 
 ### Downloads or Social Links
-* [Download](#)
-* [Meetup](#)
+* [Download](https://github.com/iudicium/pryingdeep)
 
-### Code Repository
-* [repo](#)
 
 ### Change Log
-* [changes](#)
+* [changes](https://github.com/iudicium/pryingdeep/releases)
 
