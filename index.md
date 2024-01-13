@@ -12,7 +12,7 @@ pitch: An OSINT tool to collect intelligence on the dark web.
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/iudicium/pryingdeep/web/static/logo.png">
+  <a href="https://raw.githubusercontent.com/iudicium/pryingdeep/main/web/static/logo.png">
     <img src="assets/images/logo.png" alt="Logo" width="350" height="200">
   </a>
 
