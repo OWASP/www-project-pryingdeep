@@ -1,2 +1,2 @@
 ### Leaders
-* [Iudicium](mailto:issekai666@owasp.org)
+* [Iudicium](https://github.com/iudicium)
