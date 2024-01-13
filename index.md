@@ -2,21 +2,222 @@
 
 layout: col-sidebar
 title: OWASP Pryingdeep
-tags: example-tag
-level: 2
-type: 
-pitch: A very brief, one-line description of your project
+tags: osint, dark web, tor, crawling
+level: 3
+type: documentation
+pitch: An OSINT tool to collect intelligence on the dark web.
 
 ---
 
-This is an example of a Project or Chapter Page.  Please change these items to indicate the actual information you wish to present.  In addition to this information, the 'front-matter' above this text should be modified to reflect your actual information.  An explanation of each of the front-matter items is below:
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://raw.githubusercontent.com/iudicium/pryingdeep/main/web/static/logo.png">
+    <img src="assets/images/logo.png" alt="Logo" width="350" height="200">
+  </a>
 
-layout: This is the layout used by project and chapter pages.  You should leave this value as col-sidebar
+  <h3 align="center">Prying Deep</h3>
 
-title: This is the title of your project or chapter page, usually the name.  For example, OWASP Zed Attack Proxy or OWASP Baltimore
+  <p align="center">
+    <b>OSINT intellegence gathering tool for the dark/clear web
+    <br />
+    <br />
+    <a href="https://github.com/iudicium/pryingdeep/issues">Report Bug</a>
+    <a href="https://github.com/iudicium/pryingdeep/issues">Request Feature</a>
+  </p>
+</div>
 
-tags: This is a space-delimited list of tags you associate with your project or chapter.  If you are using tabs, at least one of these tags should be unique in order to be used in the tabs files (an example tab is included in this repo) 
 
-level: For projects, this is your project level (2 - Incubator, 3 - Lab, 3.5 - Production, 4 - Flagship)
 
-type: code, documentation, or other
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#manual-installation">Manual Installation</a></li>
+        <li><a href="#binary-installation">Binary Installation</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#docker">Docker</a>
+      <ul>
+        <li><a href="#tor">Tor</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#preview">Preview</a></li>
+  </ol>
+</details>
+
+
+
+## Translation (Перевод)
+ - [Click](https://github.com/iudicium/pryingdeep/blob/main/docs/RU_README.MD)
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+I've seen multiple projects out there in GitHub, that are crawlers for the deep web,
+but most of them did not meet *my* standards of OSINT on the deep web.
+So I decided to create my own deep web OSINT tool.
+
+
+This tool serves as a reminder that the best practices of OPSEC should always be followed in the deep web.
+
+<u>The author of this project is not responsible for any possible harm caused by the usage of this tool.</u>
+
+## What does this tool do?
+
+*Prying Deep crawls dark/clear net platforms and extracts as much intelligence as possible effectively.*
+
+
+---
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+
+### Prerequisites
+
+Before you can use our OSINT tool, please ensure you have the following dependencies installed:
+
+1. **Docker: (optional)**
+    - You can download and install Docker by following the official installation instructions for your specific operating system:
+    - [Docker Installation Guide](https://docs.docker.com/get-docker/).
+
+2. **Go: (required)**
+    - [Golang Installation Guide](https://go.dev/doc/install).
+
+3. **PostgresSQL: (required if you don't use docker)**
+    - Make sure your `pryingdeep.yaml` environment variables match the environment in `docker-compose.yaml`
+    - [PostgreSQL Installation](https://www.postgresql.org/download/)
+
+
+### Binary Installation
+
+1. Install the binary via:
+
+```Sh
+go install -v github.com/iudicium/pryingdeep/cmd/pryingdeep@latest
+```
+
+2. Run the following command:
+```sh
+pryingdeep install
+```
+3. Adjust the values inside the config folder to your needs.
+
+### Manual Installation
+
+1. Clone the repo:
+   ```sh
+    git clone https://github.com/iudicium/pryingdeep.git
+   ```
+
+2. Adjust the values in the .yaml configuration either through flags or manually.
+   `Database`, `logger`, `tor` all require manual configuration. <br>
+
+<u>You *will need to read*</u> [Colly Docs](https://github.com/gocolly/colly/blob/v1.2.0/colly.go). Also, refer to [Config Explanation](./docs/CONFIG.MD#table-of-contents)
+
+
+3. Build the binary via:
+   - `go build` -> inside the `cmd/pryingdeep` directory
+   - `go build cmd/pryingdeep/pryingdeep.go` -> root directory, binary will also be there.
+
+## Docker
+
+To start run *pryingdeep* inside a docker container use this command:
+```sh
+docker-compose up
+```
+
+
+## Config
+Read more each parameter here:
+[config](https://github.com/iudicium/pryingdeep/blob/main/docs/CONFIG.MD)
+
+
+## Tor
+Read more about building and running our tor container here:
+[Tor](https://github.com/iudicium/pryingdeep/blob/main/build/package/tor/README.MD)
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+```
+Pryingdeep specializes in collecting information about dark-web/clearnet websites.
+This tool was specifically built to extract as much information as possible from a .onion website
+
+Usage:
+pryingdeep [command]
+
+Available Commands:
+completion  Generate the autocompletion script for the specified shell
+crawl       Start the crawling process
+export      Export the collected data into a file.
+help        Help about any command
+install     Installation of config files
+
+Flags:
+-c, --config string   Path to the .yaml configuration. (default "pryingdeep.yaml")
+-h, --help            help for pryingdeep
+-z, --save-config     Save chosen options to your .yaml configuration
+-s, --silent          -s to disable logging and run silently
+
+
+```
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x]  Add a user to the "tor" docker container so that it doesn't run as root
+- [ ] Acquire a shodan api key for testing the favicon module
+- [ ] Think of a way to acquire IP address of the server
+- [ ] Implement scan command
+- [ ] Implement file identification and search
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the GPL-3.0 license. See `LICENSE` for more information.
+
+
+## Video Preview
+
+[![Video Title](https://img.youtube.com/vi/TvRT_lvixI0/maxresdefault.jpg)](https://www.youtube.com/watch?v=TvRT_lvixI0)
+
+---
+
+## Preview
+
+![Preview](./assets/images/preview.png)
+![Data Preview](./assets/images/data_preview.png)
+![Data Preview 2](./assets/images/data_preview2.png)
+
